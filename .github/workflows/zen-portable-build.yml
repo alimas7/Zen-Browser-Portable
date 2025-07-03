@@ -72,7 +72,7 @@ jobs:
       - name: Create GitHub Release
         if: env.SHOULD_BUILD == 'true'
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Creating release ${{ env.TAG_NAME }}..."
           if ! gh release create "${{ env.TAG_NAME }}" \
