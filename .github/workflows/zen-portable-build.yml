@@ -21,7 +21,6 @@ jobs:
         id: get_latest_release
         run: |
           response=$(curl -sL -w "%{http_code}" \
-            -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
             https://api.github.com/repos/zen-browser/desktop/releases/latest -o response.json)
           if [ "$response" != "200" ]; then
             echo "Error: Failed to fetch latest release (HTTP $response)"
